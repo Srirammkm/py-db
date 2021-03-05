@@ -22,5 +22,16 @@ def index():
         mycursor.executemany(sql, val)
         mydb.commit()
     return render_template('index.html')
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == "POST":
+        details = request.form
+        fname = details["fname"]
+        sql = "SELECT * FROM MyUsers WHERE firstName =  %s"
+        name = (fname,)
+        mycursor.execute(sql,name)
+        res = mycursor.fetchall()
+    return render_template('search.html', res = res)
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
