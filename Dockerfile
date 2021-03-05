@@ -6,5 +6,5 @@ RUN pip install --upgrade pip
 RUN pip install flask
 RUN pip install Flask-MySQLdb
 RUN pip install mysql-connector-python
-EXPOSE 5000
+EXPOSE 80
 CMD [ "python","app.py"]
