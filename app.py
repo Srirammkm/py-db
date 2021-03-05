@@ -25,6 +25,7 @@ def index():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search():
+    res = ''
     if request.method == "POST":
         details = request.form
         fname = details["fname"]
